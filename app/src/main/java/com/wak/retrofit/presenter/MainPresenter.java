@@ -18,7 +18,7 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> implement
     }
 
     public void send() {
-        setTag(0);
+        setTag(0);//也不要加tag了
         task.execute(this);
     }
 
@@ -44,12 +44,15 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> implement
 
     @Override
     public void onSuccess(ResponseBody o) {
-
+        try {
+            view.loadPic(o.string());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-
     @Override
-    public void onNext(Object o) {
+    public void onNext(Object o) {//这个需要抛弃，以后的MVP中的P层不再实现Observer
         if (view == null) return;
         try {
             switch (getTag()) {
