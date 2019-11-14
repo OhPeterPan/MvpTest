@@ -2,6 +2,7 @@ package com.wak.retrofit.presenter;
 
 import com.wak.retrofit.bean.ComResponse;
 import com.wak.retrofit.bean.ErrorModel;
+import com.wak.retrofit.callback.IResultCallback;
 import com.wak.retrofit.task.LoginTask;
 import com.wak.retrofit.view.IMainView;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
-public class MainPresenter extends BasePresenter<IMainView, LoginTask> {
+public class MainPresenter extends BasePresenter<IMainView, LoginTask> implements IResultCallback {
 
     public MainPresenter(IMainView view, LoginTask task) {
         super(view, task);
@@ -34,7 +35,18 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> {
     public void upload(RequestBody body) {
         setTag(3);
         task.uploadFile(body, this);
+
     }
+
+    public void sendUserInfo(RequestBody body) {
+        addDisposable(task.sendUserInfo(body, this));
+    }
+
+    @Override
+    public void onSuccess(ResponseBody o) {
+
+    }
+
 
     @Override
     public void onNext(Object o) {
@@ -60,6 +72,4 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> {
             e.printStackTrace();
         }
     }
-
-
 }

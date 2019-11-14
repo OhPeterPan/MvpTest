@@ -2,6 +2,7 @@ package com.wak.retrofit.app;
 
 import android.app.Application;
 
+import com.wak.retrofit.exception.MyUncaughtException;
 import com.wak.retrofit.ui.XUI;
 
 public class MyApp extends Application {
@@ -9,5 +10,6 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         XUI.init(this);
+        MyUncaughtException.getInstance().init(this);
     }
 }

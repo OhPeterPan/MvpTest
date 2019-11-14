@@ -54,6 +54,10 @@ public abstract class BasePresenter<T extends IView, U extends ITask> implements
 
     }
 
+    public void onFail(Throwable e) {
+        view.onFail(e);
+    }
+
     @Override
     public void onError(Throwable e) {
         //UnknownHostException  SocketException  可以判断是否是io异常来判断网络连接是否失败

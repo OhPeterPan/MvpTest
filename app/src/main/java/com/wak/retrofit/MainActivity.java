@@ -91,7 +91,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                         .maxSelectNum(1)
                         .selectionMode(PictureConfig.SINGLE)
                         .forResult(PictureConfig.CHOOSE_REQUEST);
-                break;
+              //  throw new IllegalStateException();
+          break;
         }
     }
 
@@ -127,7 +128,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                             .addFormDataPart("image", file.getName(), body)
                             .build();
 
-                    getPresenter().upload(multipartBody);
+                    getPresenter().sendUserInfo(multipartBody);
                     break;
                 default:
                     break;

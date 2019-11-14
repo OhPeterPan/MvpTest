@@ -2,6 +2,7 @@ package com.wak.retrofit.task;
 
 import android.os.Environment;
 
+import com.wak.retrofit.callback.IResultCallback;
 import com.wak.retrofit.encode.AESUtils;
 import com.wak.retrofit.presenter.MainPresenter;
 import com.wak.retrofit.retrofit.RetrofitCreate;
@@ -11,6 +12,8 @@ import java.io.InputStream;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -53,5 +56,23 @@ public class LoginTask implements ILoginTask {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
+    }
+
+    public Disposable sendUserInfo(RequestBody body, final IResultCallback callback) {
+        return RetrofitCreate.uploadApkCreate()
+                .uploadAvatar(body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<ResponseBody>() {
+                    @Override
+                    public void accept(ResponseBody responseBody) throws Exception {
+                        callback.onSuccess(responseBody);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable e) throws Exception {
+                        callback.onFail(e);
+                    }
+                });
     }
 }

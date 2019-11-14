@@ -6,6 +6,7 @@ import io.reactivex.functions.Consumer;
 
 
 public interface ILoginTask extends ITask {
+
     void execute(Observer observer);
     void vExecute(Observer observer);
 }
