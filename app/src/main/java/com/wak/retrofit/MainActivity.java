@@ -19,7 +19,8 @@ import com.wak.retrofit.presenter.MainPresenter;
 import com.wak.retrofit.task.LoginTask;
 import com.wak.retrofit.ui.BaseActivity;
 import com.wak.retrofit.view.IMainView;
-import com.wak.retrofit.widget.button.ButtonView;
+import com.wak.widget_lib.button.ButtonView;
+
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.http.Multipart;
 
 /**
  * 下载数据的时候一定先给一个权限，要不然无法创建文件
@@ -91,8 +91,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                         .maxSelectNum(1)
                         .selectionMode(PictureConfig.SINGLE)
                         .forResult(PictureConfig.CHOOSE_REQUEST);
-              //  throw new IllegalStateException();
-          break;
+                //  throw new IllegalStateException();
+                break;
         }
     }
 

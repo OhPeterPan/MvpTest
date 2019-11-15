@@ -19,15 +19,23 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> implement
 
     public void send() {
         setTag(0);//也不要加tag了
+        if (getView() == null || getTask() == null)
+            return;
+
+        getView().showLoading();
         task.execute(this);
     }
 
     public void sendError() {
+        if (getView() == null || getTask() == null)
+            return;
         setTag(1);
         task.vExecute(this);
     }
 
     public void getApkTask() {
+        if (getView() == null || getTask() == null)
+            return;
         setTag(2);
         task.downloadApkTask(this);
     }
@@ -39,12 +47,17 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> implement
     }
 
     public void sendUserInfo(RequestBody body) {
+        if (getView() == null || getTask() == null)
+            return;
+
+        getView().showLoading();
         addDisposable(task.sendUserInfo(body, this));
     }
 
     @Override
     public void onSuccess(ResponseBody o) {
         try {
+            getView().onEnd();
             view.loadPic(o.string());
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,6 +67,8 @@ public class MainPresenter extends BasePresenter<IMainView, LoginTask> implement
     @Override
     public void onNext(Object o) {//这个需要抛弃，以后的MVP中的P层不再实现Observer
         if (view == null) return;
+
+        getView().onEnd();
         try {
             switch (getTag()) {
                 case 0:

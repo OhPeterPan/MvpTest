@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.wak.retrofit.widget.button.ButtonView
+    <com.wak.widget_lib.button.ButtonView
         android:id="@+id/buttonView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:textSelectedSolidColor="#87919A"
         app:textSolidColor="#2BCFB8" />
 
-    <com.wak.retrofit.widget.button.ButtonView
+    <com.wak.widget_lib.button.ButtonView
         android:id="@+id/buttonView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:textSelectedTextColor="#ffffff"
         app:textSolidColor="#ff0000" />
 
-    <com.wak.retrofit.widget.button.ButtonView
+    <com.wak.widget_lib.button.ButtonView
         android:id="@+id/buttonView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         app:textSelectedTextColor="#ffffff"
         app:textSolidColor="#ff0000" />
 
-    <com.wak.retrofit.widget.button.ButtonView
+    <com.wak.widget_lib.button.ButtonView
         android:id="@+id/buttonView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:textSelectedTextColor="#ffffff"
         app:textSolidColor="#ff0000" />
 
-    <com.wak.retrofit.widget.button.ButtonView
+    <com.wak.widget_lib.button.ButtonView
         android:id="@+id/buttonView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +74,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+        android:background="@android:color/holo_red_dark"
+        android:padding="@dimen/text"
+        android:textColor="@android:color/white"
         android:textSize="12sp" />
 </LinearLayout>

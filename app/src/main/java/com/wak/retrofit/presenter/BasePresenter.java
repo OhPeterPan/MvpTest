@@ -31,6 +31,10 @@ public abstract class BasePresenter<T extends IView, U extends ITask> implements
         return task;
     }
 
+    public T getView() {
+        return view;
+    }
+
     public int getTag() {
         return tag;
     }

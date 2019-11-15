@@ -8,9 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wak.retrofit.R;
 import com.wak.retrofit.presenter.BasePresenter;
+import com.wak.widget_lib.dialog.MiniLoadingDialog;
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements IBase, View.OnClickListener {
     T presenter;
+    private MiniLoadingDialog mDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,6 +22,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         initView();
         initListener();
         initData();
+        initDialog();
+    }
+
+    private void initDialog() {
+        mDialog = new MiniLoadingDialog(this);
     }
 
     protected void setPresenter(T presenter) {
@@ -57,7 +64,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     public void onEnd() {
-
+        if (mDialog != null && mDialog.isLoading()) mDialog.dismiss();
     }
 
     @Override
@@ -68,13 +75,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     public void showLoading() {
-
+        if (mDialog != null && !mDialog.isLoading()) mDialog.show();
     }
 
     @Override
     public void onFail(Throwable throwable) {
-
+        onEnd();
     }
-
-
 }
