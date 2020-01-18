@@ -1,1 +1,1 @@
-include ':app', ':widget_lib'
+include ':app', ':widget_lib', ':textUtilsLib'
