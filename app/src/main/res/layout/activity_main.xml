@@ -74,8 +74,19 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_red_dark"
-        android:padding="@dimen/text"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="12sp" />
+
+    <com.wak.widget_lib.button.ButtonView
+        android:id="@+id/buttonView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="12dp"
+        android:text="各种ui效果展示"
+        android:textSize="12sp"
+        app:textNormalTextColor="#ffffff"
+        app:textSelectedSolidColor="#87919A"
+        app:textSelectedTextColor="#ffffff"
+        app:textSolidColor="#ff0000" />
 </LinearLayout>

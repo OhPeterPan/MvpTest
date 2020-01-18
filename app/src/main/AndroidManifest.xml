@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.UIActivity" />
+        <activity android:name=".ui.ProgressBarActivity" />
+        <activity android:name=".ui.PopupWindowActivity" />
     </application>
 
 </manifest>

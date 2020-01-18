@@ -18,6 +18,7 @@ import com.wak.retrofit.presenter.MainPresenter;
 
 import com.wak.retrofit.task.LoginTask;
 import com.wak.retrofit.ui.BaseActivity;
+import com.wak.retrofit.ui.UIActivity;
 import com.wak.retrofit.view.IMainView;
 import com.wak.widget_lib.button.ButtonView;
 
@@ -59,12 +60,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         ButtonView buttonView3 = findViewById(R.id.buttonView3);
         ButtonView buttonView4 = findViewById(R.id.buttonView4);
         ButtonView buttonView5 = findViewById(R.id.buttonView5);
+        ButtonView buttonView6 = findViewById(R.id.buttonView6);
         textView = findViewById(R.id.textView);
         buttonView1.setOnClickListener(this);
         buttonView2.setOnClickListener(this);
         buttonView3.setOnClickListener(this);
         buttonView4.setOnClickListener(this);
         buttonView5.setOnClickListener(this);
+        buttonView6.setOnClickListener(this);
         // MultipartBody.Part.createFormData()
 /*        RequestBody.create(MediaType.parse(""),);
         MultipartBody.create(MediaType.parse("multipart/form-data"),new File(""));*/
@@ -91,6 +94,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                         .maxSelectNum(1)
                         .selectionMode(PictureConfig.SINGLE)
                         .forResult(PictureConfig.CHOOSE_REQUEST);
+                //  throw new IllegalStateException();
+                break;
+            case R.id.buttonView6:
+                //先去选择图片
+             startActivity(new Intent(this, UIActivity.class));
                 //  throw new IllegalStateException();
                 break;
         }

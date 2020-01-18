@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item" >
+
+        <item>进度条</item>
+        <item>图片</item>
+        <item>Dialog</item>
+        <item>PopupWindow</item>
+    </string-array>
+</resources>
